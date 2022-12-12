@@ -8,7 +8,7 @@ database operation sql is divided in four parts :-
  4. TCL (transaction Control Language)
  
  
- ********************
+********************
 Commands of DDL :- 
 1. create :- creatte command id used to creat a new database object.
  create table table_name 
@@ -32,6 +32,7 @@ Commands of DDL :-
  
     HINDI -table mian data ko save karne ke liye isert commond ka use kiya jata hai.
 
+
 2. delete :- The delete commad is uset o delete record from database object.
 
 3. update :- The update commaand is used to modify reedord in database object.
@@ -49,16 +50,13 @@ Commands OF DCL :-
 1. grant  :- grant commaand used to give  rights(adhikar ) to database user .
 
 2. reoke :- revoke command is used  to taek off rights from database user . It is just opposti to grant command
-   hindi - yah grant commond ka ulta hai . isme user se rights wapse le liye jata hai. 
-
+   hindi - yah grant commond ka ulta hai . isme user se rights wapse le liye jat
 3. rename :- rename commaand is used to change name of database  object .
 
 Commands of TCL :- 
  1. commit :- commit command is uset to save transaction . 
  
  2. rollback :- tollback command is work like undo = ctrl +z 
- 
- 
  
  ***********************************
  Use of create command to crae a new user :- 
@@ -81,16 +79,16 @@ Commands of TCL :-
 	 grant dba to app2022;
 	 
 	 grant dba to mydb;
-	
+_______________________________________________________________________________________________________________________________________________
 *************************************************************************************************************************************************
--------------------------------------------------------------------------------------------------------------------------------------------------
 DATE- 30-10-2022
 
 	
-	
 
 USE OF create command to create a new table :-
- note -isme rwo ko tupple kahte hai , colom ko attribute kahte hai . table
+
+Note -isme rwo ko tupple kahte hai , colom ko attribute kahte hai . 
+ 
  Table :- Table is a collection of rews and columns . Rows are called tuples and columns are called attribute. 
  
  
@@ -103,8 +101,7 @@ create table <tablename>
  <colluman4>  <datagype>,
  );
  
- 
- -----------------------------------------|
+ |----------------------------------------|
  | Table name :-        employee          |
  | empid               int                |
  |  empname             varchar 2(30)     |
@@ -127,7 +124,6 @@ create table <tablename>
  
  table ko crate ko karna :- 
  ***********************
- 
  
   create table studentss
   (
@@ -242,8 +238,7 @@ E.g.
  <>       not equal
  in   -     compare value in given values
  between  - check whether given values is available in given range or not
-like    -   this operator is used for pattern 
-matching  - 
+like    -   this operator is used for pattern matching - 
 
 USE OF DELETE COMMAND TO DELETE RECORD FROM TABLE :-
 **************************************************
@@ -289,7 +284,7 @@ Syntax :-
 
 
 truncate table employees;
-   
+    
 _______________________________________________________________________________________________________________________________________________
 ***********************************************************************************************************************************************
 DATE- 31-10-2022
@@ -308,19 +303,13 @@ alter:- THE ALTER COMMAND IS USER TO MODIFY STRUCTURE OF DATBASE OF DATABSE  OBJ
  ( 
  userid varchar2(20) primary
 
-
  key ,
- password varchar2(20)
- );
-
-
-Use of alter command to add a new column:-
-*****************************************
+ p ***********************************
 
 Syntax :- alter table <tablename> add <column_name><data_type>;
 
 exaple :- 
-
+ 
  alter table login add usertype varchar2(20);
  
  alter table login_info add hint_ques varchar2(30);
@@ -386,7 +375,11 @@ Use of rename command to chage name of dababse object:-
 data filed:-	
 	
 	 insert into employe values 
-  (103,'Prasant',30000);
+  (101,'sarvesh',10000);
+  insert into employe values 
+  (102,'Prasant',20000);
+  insert into employe values 
+  (103,'varma',30000);
   
   
   
@@ -397,7 +390,7 @@ data filed:-
 	exaple:- select sum(salary)"Total Salary" from employe;
 	
 	
-** MAX():- max()function is use to find maximum value in give colmn.
+   ****** MAX():- max()function is use to find maximum value in give colmn.
 
 
 exaple:-
@@ -407,15 +400,14 @@ exaple:-
  MIN():- min()function is uset ot find minumun value in given 
  
  
- 
- selct
+ select max(salary)from employe;
  
  
  ______________________________________________________________________________________________________________________________________________________________________________________________________
  **********************************************************************************************************************************************************************************
  DATE- 1-11-2022
  
- 1.count():- The count() function in sql is user to count number of rws in a table . 1.  ******
+ 1. count():- The count() function in sql is user to count number of rws in a table . 1.  ******
  ********** 
  2. upper() :- The upper () function converts string data into upper case .
  ***********
@@ -447,7 +439,7 @@ select * from employe where salary= (select min(salary) from employe);
 select * from employe where salary=(select min(salary)from employe where salary >(select min (salary) from employe));
 
 
-Join Operation :- If you want to select dat from two tables , THEN YOU NEED TO PERFORM JOIN OPERTION . For join operation atleast 
+Join Operation :- If you want to select data from two tables , THEN YOU NEED TO PERFORM JOIN OPERTION . For join operation atleast 
 one column should be ommon in both tables . 
 
 FOREIGN KEY :- Foreign key is a filed in a tale which woks as primary key in another table . foreign key is used to establish relationship in two table.
@@ -463,13 +455,7 @@ empname varchar2(20)
 );
  
  
- create table product
- (
- pid number(5) primary key , 
- pname varchar2(20),
- empid number(5),
- foreign key(empid) references empinfo(empid)
- );
+ 
  
  
  insert into empinfo values(1001,'John');
@@ -625,8 +611,7 @@ salary number(8)
  .
  Now we create a view with fields empid and empname .
  
- create view emp as (select empid,empname from spiemp
- );
+ create view emp as (select empid,empname from spiemp);
  
  
  insert into emp values (1001,'Brijesh');
@@ -664,7 +649,7 @@ insert into student values (1004,'Parshant  Mishra ','CS');
 select * from student where name like '%singh';
 
 
-2. select records of students whose name is dstarted frm "p" .
+2. select records of students whose name is dstarted frm "p" ;
 
 
 code :-  select * from student where name like 'P%'; 
@@ -683,8 +668,6 @@ primary key (S#,P#)
 );
 
 
-
-
 Check :- Check constraint is used to apply validation in table .
 ******
 
@@ -700,7 +683,6 @@ empnaem                           varchar2(20)                    Check empname 
 country                           varchar2(5)                    Check country must be either 'India'or 'Nepal'
 
 salary                           number                            Check salary not more than 1,00,000 .
-
 
 
 create table staff
@@ -726,8 +708,7 @@ primary key(Client_no)
 );
 
 
-
-insert into client_master values('C1001', 'SARVESH','LUCKNOW','UTTER PARDESH',1000);
+insert into client_master values('C1001', 'SARVESH','Calcutta','UTTER PARDESH',1000);
 
 
 
@@ -828,7 +809,7 @@ empname varchar2(20)
  ************************************************************
  
  
-  WRITE A PL  code to print hello wro
+  WRITE A PL  code to print hello wrod
   
   begin 
   dbms_output.put_line('hello wrold');
@@ -884,6 +865,10 @@ HOW TO GET INPUT BY USER :-
   
   Write a PL/SQL code to make a simple calculator;
   
+ 
+
+ 
+  
   declare 
   a int;
   b int;
@@ -896,6 +881,10 @@ HOW TO GET INPUT BY USER :-
   dbms_output.put_line('Division='||(a/b));
   end;
   /
+  
+  
+  
+  
   
  Write a PL/SQL code to calculate area and perimeter of rectangel.
  
@@ -916,9 +905,6 @@ end;
   
 *****************************************************************
 DECISION Control
-
-
-
 
 
 
@@ -1199,3 +1185,263 @@ select empname , pname from empinfo left join product on empinfo.empid=product.e
 Right join Operation :- When you perform right join opration then all records of right tabl are displayd and matching recors of left table are displaydkk.
 
 select empname,pname from empinfo right join product on empinfo.empid=product.empid;
+
+CLASSE WORK :- 
+**************
+
+
+create table employee
+(
+empid varchar2(10) primary key,
+empname varchar2(30),
+Department  varchar2(20) ,
+salary varchar2(8)
+);
+
+
+
+insert into employee values('1001','Ravi Singh','Management','80000');
+
+
+
+insert into employee values('1002','Brijesh Mishra','Development','45000');
+insert into employee values('1003','Rajat Verma','Management','50000');
+insert into employee values('1004','Krishna','Development','35000');
+insert into employee values('1005','Nisha Singh','HR','38000
+
+
+select * from employee where Department like '%Development';
+
+ delete from employee where empid = 1005;
+ 
+ select * from employee where salary= (select max(salary) from employee);
+ 
+ 
+create table elect_bill
+(
+id Number(5) primary key,
+Unit Number(5),
+Bill  Number(10,5)
+);
+ 
+ declare
+Unit Number(5);
+Bill  Number(10,5);
+id Number(5);
+begin 
+ id:=&id;
+ unit:=&unit;
+ if unit<=150 then
+ bill:=unit*2.40;
+ elsif unit>150 and unit<=300 then
+ bill:=(150*2.40)+(unit-150)*3.00;
+ else
+ bill:=(150*2.40)+(150*3.00)+(unit-300)*3.20;
+ end if;
+ dbms_output.put_line('your bill is ='||bill);
+ insert into elect_bill values(id,unit,bill);
+ commit;
+ end;
+ /
+ 
+ 
+ 
+ NOTE  := aisi kon si table hai jisme 
+ 
+ 
+ 
+ 
+declare 
+bnum int;
+dec int:=0;
+n int:=0;
+r int;
+begin 
+bnum:&Input_Number_In_0_And_1;
+while bnum>0 loop 
+r:mod(bnum,10);
+dec:=dec+r*power(2,n);
+bnum:=trunc(bnum/10);
+n:n+1;
+end loop;
+dbms_output.put_line('Decimal namber'||dec);
+end;
+/
+
+
+
+
+_______________________________________________________________________________________________________________________________________________
+*********************************************************************************************************************************************************
+date-18-11-2022
+
+
+                                                              TEST
+												
+												
+	create table student(
+	stdid int(11) not null parimery key auto_incriment,
+	stdname varchar(191) not null Unique index key,
+	class varchar (191) not null ,
+	marks varchar(191) not null,
+	gender enum('male','female','other')
+	);
+	
+	Add Index dkey on marks 
+	
+	or 
+	
+	create table student(
+	stdid int(11) not null parimery key auto_incriment,
+	stdname varchar(191) not null Unique index key,
+	class varchar (191) not null ,
+	marks varchar(191) not null index key,
+	gender enum('male','female','other') not null
+	);
+	
+	2.. create database softpro_db ;
+	3. use softpro_db;
+	
+	Ans  3. Alter table student Add column [] mobileno bigint(24)/varchar(50);
+	
+	4. insert [into] student values ('1001','sarvesh sharma','diploma','85','male','789456123');
+	. insert [into] student values ('1001','sarvesh varma','10tj','85','male','789456123');
+
+
+5. slect * from student where mobileno ='';
+or 
+.slect 8 from studetn where mobileno is Null;
+
+selct * form student wher stdid=''1002;
+or
+Delete from student where stdid ='1002';
+update student set marks = '' where stdid ='1002'; corrent.
+
+Insert [into] student values
+(Null, 'ramani','10th','50','female','789456+1230'),
+(Null, 'ramani','10th','50','female','789456+1230'),
+(Null, 'ramani','10th','50','female','789456+1230'),
+(Null, 'ramani','10th','50','female','789456+1230'),
+(Null, 'ramani','10th','50','female','789456+1230'),
+
+or
+
+Insert [into] student values
+('', 'ramani','10th','50','female','789456+1230'),
+('', 'ramani','10th','50','female','789456+1230'),
+('', 'ramani','10th','50','female','789456+1230'),
+('', 'ramani','10th','50','female','789456+1230'),
+('', 'ramani','10th','50','female','789456+1230'),
+ or
+
+Insert [into] student (stdname,class,marks,gender,mobileno) vlaues
+('ramani','10th','50','female','789456+1230'),
+('ramani','10th','50','female','789456+1230'),
+('ramani','10th','50','female','789456+1230'),
+('ramani','10th','50','female','789456+1230'),
+('ramani','10th','50','female','789456+1230'),
+
+
+ans 8. update student set marks ='0' where gender ='female';
+ans 9.  inset into student (name,class, gender,mobile)
+values('kuldeep','12th','male','123456789');
+10. delete form student where stdid =
+
+ans 11. select count (stdid) as "total Number of student " from student where markds IS NULL;
+
+12. Write the query on the Overall sex Ration of boys and girl on the class 
+1.find the no of boys in class :
+slelct *form student wehere gender ='male';
+select count (stdid), count(stdid) form student wher gender = 'male'
+
+stdid,name , class , gender , marks , mobileno
+
+
+
+Taking input form user by object of Scanner class.  Scanner :- Scanner is built-in class which is available in java.utill package. 
+Package :- package is container of cclass , interfaces anss sub packages. 
+
+import java.util.Scanner;
+
+HOW TO CREATE OBJECT ;
+Syntax :-
+
+ClassName varibleName=NEW ClassName();
+Employee e=new Employee();
+
+
+import java.util.Scanner;
+
+how to create object of scanner class ?
+Scanner s=new Scanner(System.in);
+Ex1 :- Taking int input. 
+int a;
+a=s.nextnt();
+ex2:- Taking float input. 
+
+float b;
+b=s.nextFloat();
+
+Ex:- Taking double input.double c;
+c=s.nextDouble();
+
+input.
+String name ;
+name=s.next();
+or name =s.nextLine();
+
+
+
+
+Note  :- JAVA MAIN JO VAIBALE HOTE HAI OW CAMLW CASE KO FOLOW KARTE HAI. as :- BufferedTeader ;
+
+
+TASK :-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ select * from emp where salary=(select max(salary) from emp);
+ 
+ 
+ select * from emp where salary<(select second max(salary) from emp);
+ 
+ 
+ 
